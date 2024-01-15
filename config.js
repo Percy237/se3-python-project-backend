@@ -4,10 +4,7 @@ import mongoose from "mongoose";
 const mongoAtlasUri = `mongodb://127.0.0.1:27017/se3`;
 export function mongooseConnection() {
   try {
-    mongoose.connect(mongoAtlasUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    mongoose.connect(mongoAtlasUri);
   } catch (e) {
     console.log("could not connect");
   }
