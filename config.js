@@ -1,10 +1,13 @@
 export const PORT = 5555;
 
 import mongoose from "mongoose";
-const mongoAtlasUri = `mongodb://127.0.0.1:27017/se3`;
+const mongoAtlasUri = `mongodb+srv://percy:tsembompercy18@cluster0.9efxa2h.mongodb.net/se3`;
 export function mongooseConnection() {
   try {
-    mongoose.connect(mongoAtlasUri);
+    mongoose.connect(mongoAtlasUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
   } catch (e) {
     console.log("could not connect");
   }
