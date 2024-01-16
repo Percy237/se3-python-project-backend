@@ -4,7 +4,11 @@ import { User } from "../models/userModel.js";
 
 router.post("/", async (request, response) => {
   try {
-    if (!request.body.name || !request.body.project_name) {
+    if (
+      !request.body.name ||
+      !request.body.project_name ||
+      !request.body.description
+    ) {
       return response.status(400).send({
         message: "Send all required fields",
       });
@@ -12,6 +16,7 @@ router.post("/", async (request, response) => {
     const newUser = {
       name: request.body.name,
       project_name: request.body.project_name,
+      description: request.body.description,
     };
 
     const user = await User.create(newUser);
